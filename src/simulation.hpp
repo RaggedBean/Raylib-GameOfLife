@@ -9,11 +9,19 @@ class Simulation
 
         void Draw();
         void Update();
+
         void SetValue(int row, int col, int value);
         int GetValue(int row,  int col) { return grid.GetValue(row, col); }
+
         int CountLiveNeighbors(int row, int col);
+
+        bool IsRunning() { return run; }
+        void Start() { run = true; }
+        void Stop() { run = false;}
 
     private:
         Grid grid;
         Grid tempGrid;
+
+        bool run;
 };

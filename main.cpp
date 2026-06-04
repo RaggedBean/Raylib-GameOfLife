@@ -24,6 +24,19 @@ int main(void)
     {
 
         // Events
+        if (IsKeyPressed(KEY_ENTER)) // Start simulation
+        {
+            if (!simulation.IsRunning())
+            {
+                simulation.Start();
+                SetWindowTitle("Press ENTER to stop the simulation");
+            }
+            else
+            {
+                simulation.Stop();
+                SetWindowTitle("Press ENTER to start the simulation");
+            }
+        }
 
         // Update
         simulation.Update();

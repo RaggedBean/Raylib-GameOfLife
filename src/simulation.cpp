@@ -52,26 +52,29 @@ int Simulation::CountLiveNeighbors(int row, int col)
 
 void Simulation::Update()
 {
-    bool test = true;
-    for (int row = 0; row < grid.GetRows(); row++)
-    {
-        for (int col = 0; col < grid.GetColumns(); col++)
-        {
-            int cellValue = grid.GetValue(row, col);
-            int neighbors = CountLiveNeighbors(row, col);
+    if (run) {
 
-            if (cellValue == 1) {
-                if (neighbors < 2 || neighbors > 3) { //
-                    tempGrid.SetValue(row, col, 0);
-                } else {
-                    tempGrid.SetValue(row, col, 1);
+        bool test = true;
+        for (int row = 0; row < grid.GetRows(); row++)
+        {
+            for (int col = 0; col < grid.GetColumns(); col++)
+            {
+                int cellValue = grid.GetValue(row, col);
+                int neighbors = CountLiveNeighbors(row, col);
+
+                if (cellValue == 1) {
+                    if (neighbors < 2 || neighbors > 3) { //
+                        tempGrid.SetValue(row, col, 0);
+                    } else {
+                        tempGrid.SetValue(row, col, 1);
+                    }
                 }
-            }
-            else {
-                if (neighbors == 3) {
-                    tempGrid.SetValue(row, col, 1);
-                } else {
-                    tempGrid.SetValue(row, col, 0);
+                else {
+                    if (neighbors == 3) {
+                        tempGrid.SetValue(row, col, 1);
+                    } else {
+                        tempGrid.SetValue(row, col, 0);
+                    }
                 }
             }
         }
