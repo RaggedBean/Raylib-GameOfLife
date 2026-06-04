@@ -22,3 +22,13 @@ void Grid::SetValue(int row, int column, int value)
         cells[row][column] = value;
     }
 }
+
+void Grid::FillRandom()
+{
+    for (int row = 0; row < rows; row++) {
+        for (int col = 0; col < columns; col++) {
+            int randomValue = GetRandomValue(0, 4);
+            cells[row][col] = (randomValue == 4) ? 1 : 0;
+        }
+    }
+}

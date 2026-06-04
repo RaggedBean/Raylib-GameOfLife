@@ -27,7 +27,6 @@ int Simulation::CountLiveNeighbors(int row, int col)
     };
 
     std::pair<int, int> center = {row, col};
-    std::cout << "cell to test :" << center.first << ", " << center.second << "\n" << std::endl;
 
     for (auto o : offsets)
     {
@@ -58,9 +57,25 @@ void Simulation::Update()
     {
         for (int col = 0; col < grid.GetColumns(); col++)
         {
+            int cellValue = grid.GetValue(row, col);
             int neighbors = CountLiveNeighbors(row, col);
 
-            if (neighbors == 2 || neighbors == 3) { test = true; }
+            if (cellValue == 1) {
+                if (neighbors < 2 || neighbors > 3) { //
+                    tempGrid.SetValue(row, col, 0);
+                } else {
+                    tempGrid.SetValue(row, col, 1);
+                }
+            }
+            else {
+                if (neighbors == 3) {
+                    tempGrid.SetValue(row, col, 1);
+                } else {
+                    tempGrid.SetValue(row, col, 0);
+                }
+            }
         }
     }
+
+    grid = tempGrid;
 }

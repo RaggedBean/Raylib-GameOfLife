@@ -5,7 +5,7 @@ class Simulation
 {
     public:
         Simulation(int width, int height, int cellSize)
-        : grid(width, height, cellSize), tempGrid(width, height, cellSize) {};
+        : grid(width, height, cellSize), tempGrid(width, height, cellSize) { grid.FillRandom(); };
 
         void Draw();
         void Update();

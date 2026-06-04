@@ -5,7 +5,7 @@
 
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 800;
-const int CELL_SIZE = 32;
+const int CELL_SIZE = 16;
 
 
 int main(void)
@@ -26,6 +26,7 @@ int main(void)
         // Events
 
         // Update
+        simulation.Update();
 
         // Drawing
         BeginDrawing();

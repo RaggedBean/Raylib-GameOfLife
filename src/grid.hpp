@@ -13,6 +13,8 @@ class Grid
 
         int GetRows() const { return rows; }
         int GetColumns() const { return columns; }
+
+        void FillRandom();
     private:
         int rows;
         int columns;
